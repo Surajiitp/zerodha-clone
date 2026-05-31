@@ -67,6 +67,20 @@ npm install
 npm start
 ```
 
+## Screenshots
+
+### Landing Page (Hero Section)
+![Landing Page](Screenshot%202026-05-31%20111006.png)
+
+### Funds Page
+![Funds Page](Screenshot%202026-05-31%20110811.png)
+
+### Holdings Page
+![Holdings Page](Screenshot%202026-05-31%20110923.png)
+
+### Dashboard Page
+![Dashboard Page](Screenshot%202026-05-31%20111051.png)
+
 ## Author
 
 **Suraj Kumar**
