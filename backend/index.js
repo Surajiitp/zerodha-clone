@@ -207,6 +207,10 @@ app.get("/allOrders", async (req, res) => {
   res.json(allOrders);
 });
 
+app.get("/allHoldings", (req, res) => {
+  res.send("HOLDINGS ROUTE WORKING");
+});
+
 app.post("/newOrder", async (req, res) => {
   let newOrder = new OrdersModel({
     name: req.body.name,
