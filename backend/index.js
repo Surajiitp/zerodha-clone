@@ -23,7 +23,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
- //app.get("/addHoldings", async (req, res) => {
+// app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
 //     {
 //       name: "BHARTIARTL",
@@ -191,6 +191,7 @@ app.use(bodyParser.json());
 //   });
 //   res.send("Done!");
 // });
+
 
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});
