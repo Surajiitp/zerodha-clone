@@ -220,7 +220,9 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved!");
 });
 
-
+app.get("/", (req, res) => {
+  res.send("Backend Running");
+});
 
 app.listen(PORT, () => {
     console.log("App started!");
