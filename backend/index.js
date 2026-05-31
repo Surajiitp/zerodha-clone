@@ -6,19 +6,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const { HoldingsModel } = require("./model/HoldingsModel");
-
 const { PositionsModel } = require("./model/PositionsModels");
 const { OrdersModel } = require("./model/OrdersModel");
-
 
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
-console.log(process.env);
-console.log("URI =", process.env.MONGO_URL);
-
 const app = express();
-
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -202,38 +196,42 @@ app.get("/allPositions", async (req, res) => {
   res.json(allPositions);
 });
 
+// 👇 YE NAYA ROUTE ADD KARNA HAI
 app.get("/allOrders", async (req, res) => {
   let allOrders = await OrdersModel.find({});
   res.json(allOrders);
 });
 
-app.get("/allHoldings", (req, res) => {
-  res.send("HOLDINGS ROUTE WORKING");
-});
-
 app.post("/newOrder", async (req, res) => {
-  let newOrder = new OrdersModel({
-    name: req.body.name,
-    qty: req.body.qty,
-    price: req.body.price,
-    mode: req.body.mode,
+  try {
+    const newOrder = new OrdersModel({
+      name: req.body.name,
+      qty: req.body.qty,
+      price: req.body.price,
+      mode: req.body.mode,
+    });
+
+    await newOrder.save();
+    res.status(201).send("Order saved!");
+  } catch (error) {
+    console.error("Error saving order:", error);
+    res.status(500).json({ error: "Unable to save order." });
+  }
+});
+
+if (!uri) {
+  console.error("Missing MONGO_URL environment variable.");
+  process.exit(1);
+}
+
+mongoose
+  .connect(uri)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server listening on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Failed to connect to MongoDB:", error);
+    process.exit(1);
   });
-
-  newOrder.save();
-
-  res.send("Order saved!");
-});
-
-app.get("/", (req, res) => {
-  res.send("Backend Running");
-});
-
-app.listen(PORT, () => {
-    console.log("App started!");
-    mongoose.connect(uri)
-    .then(() => console.log("DB connected!"))
-  .catch((err) => console.log(err));   
-});
-
-
-
