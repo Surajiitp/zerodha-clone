@@ -30,9 +30,11 @@ function Navbar() {
           <form class="d-flex" role="search">
             <ul class="navbar-nav mb-lg-0">
               <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/signup">
-                  Signup
-                </Link>
+<a  className="nav-link active"
+  href="https://zerodha-clone-2-oeiq.onrender.com"
+>
+  Signup
+</a>
               </li>
               <li class="nav-item">
                 <Link class="nav-link active" to="/about">
