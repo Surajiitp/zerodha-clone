@@ -1,38 +1,65 @@
 # Zerodha Clone
 
-A full-stack Zerodha Clone built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).
+A full-stack Zerodha Clone built using the MERN Stack (MongoDB, Express.js, React.js, Node.js). This project replicates core Zerodha dashboard features such as holdings, positions, and order management.
+
+## Live Demo
+
+### Landing Page
+
+https://zerodha-clone-1-0wdl.onrender.com
+
+### Dashboard
+
+https://zerodha-clone-2-oeiq.onrender.com
 
 ## Features
 
-- User Dashboard
-- Holdings Management
-- Positions Tracking
-- Orders Section
-- Funds Management
-- Responsive UI
-- MongoDB Integration
+* User-friendly Zerodha-inspired UI
+* Dashboard with Holdings and Positions
+* Buy & Sell Order Placement
+* Orders stored in MongoDB Atlas
+* REST API Integration
+* Responsive Design
+* Render Deployment
 
 ## Tech Stack
 
 ### Frontend
-- React.js
-- Bootstrap
-- Material UI
+
+* React.js
+* React Router
+* Bootstrap
+* Axios
 
 ### Backend
-- Node.js
-- Express.js
+
+* Node.js
+* Express.js
 
 ### Database
-- MongoDB Atlas
+
+* MongoDB Atlas
+* Mongoose
+
+### Deployment
+
+* Render
 
 ## Project Structure
 
 ```text
-zerodha-clone/
-├── backend/
-├── dashboard/
-├── fronted/
+backend/
+dashboard/
+fronted/
+```
+
+## API Endpoints
+
+```http
+GET /allHoldings
+GET /allPositions
+GET /allOrders
+POST /newOrder
 ```
 
 ## Installation
@@ -41,25 +68,10 @@ zerodha-clone/
 
 ```bash
 git clone https://github.com/Surajiitp/zerodha-clone.git
+cd zerodha-clone
 ```
 
-### Frontend
-
-```bash
-cd fronted
-npm install
-npm start
-```
-
-### Dashboard
-
-```bash
-cd dashboard
-npm install
-npm start
-```
-
-### Backend
+### Backend Setup
 
 ```bash
 cd backend
@@ -67,22 +79,22 @@ npm install
 npm start
 ```
 
-## Screenshots
+### Frontend Setup
 
-### Landing Page (Hero Section)
-![Landing Page](Screenshot%202026-05-31%20111006.png)
+```bash
+cd fronted
+npm install
+npm start
+```
 
-### Funds Page
-![Funds Page](Screenshot%202026-05-31%20110811.png)
+### Dashboard Setup
 
-### Holdings Page
-![Holdings Page](Screenshot%202026-05-31%20110923.png)
-
-### Dashboard Page
-![Dashboard Page](Screenshot%202026-05-31%20111051.png)
+```bash
+cd dashboard
+npm install
+npm start
+```
 
 ## Author
-
 **Suraj Kumar**
-
 GitHub: https://github.com/Surajiitp
