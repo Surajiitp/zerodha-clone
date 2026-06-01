@@ -31,7 +31,7 @@ function Team() {
           </p>
           <p>Playing cricket brings me peace and fulfillment.</p>
           <p>
-            Connect on <a href="">Homepage</a> _/ <a href="">TradingQnA</a> /{" "}
+            Connect on <a href="/">Homepage</a> _/ <a href="/">TradingQnA</a> /{" "}
             <a href="https://www.instagram.com/_im__suraj1" target="_blank" rel="noreferrer">Instagram</a>
           </p>
         </div>

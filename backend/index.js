@@ -2,20 +2,23 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModels");
 const { OrdersModel } = require("./model/OrdersModel");
 
-const PORT = process.env.PORT || 3002;
+const PORT = Number(process.env.PORT) || 3002;
 const uri = process.env.MONGO_URL;
 
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
@@ -212,6 +215,7 @@ app.post("/newOrder", async (req, res) => {
     });
 
     await newOrder.save();
+
     res.status(201).send("Order saved!");
   } catch (error) {
     console.error("Error saving order:", error);
@@ -227,11 +231,13 @@ if (!uri) {
 mongoose
   .connect(uri)
   .then(() => {
+    console.log("✅ DB Connected");
+
     app.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
     });
   })
   .catch((error) => {
-    console.error("Failed to connect to MongoDB:", error);
-    process.exit(1);
-  });
+  console.error("Failed to connect to MongoDB:", error);
+  process.exit(1);
+});
